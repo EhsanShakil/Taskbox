@@ -1,12 +1,8 @@
 import React from "react";
 import { allTask } from "../stories/Task.stories";
-import { AiOutlineStar,AiTwotoneStar } from 'react-icons/ai'
+import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 
-const Task = ({
-  task,
-  onArchiveTask,
-  onPinTask,
-}: allTask) => {
+const Task = ({ task, onArchiveTask, onPinTask }: allTask) => {
   return (
     <div>
       <label>
@@ -16,9 +12,9 @@ const Task = ({
           disabled={true}
           defaultChecked={task.state === "TASK_ARCHIVED"}
         />
-        <span className="checkbox-custom" onClick={() => onArchiveTask(task)} />
+        <span onClick={() => onArchiveTask(task)} />
       </label>
-      <div className="title">
+      <div>
         <input
           type="text"
           value={task.title}
@@ -27,10 +23,16 @@ const Task = ({
         />
       </div>
 
-      <div className="actions" onClick={(event) => event.stopPropagation()}>
+      <div onClick={(event) => event.stopPropagation()}>
         {task.state !== "TASK_ARCHIVED" && (
           <span onClick={() => onPinTask(task)}>
-                      <span>{task.state === "TASK_PINNED" ? <AiTwotoneStar color='yellow'/> : <AiOutlineStar/>}</span>
+            <span>
+              {task.state === "TASK_PINNED" ? (
+                <AiTwotoneStar color="yellow" />
+              ) : (
+                <AiOutlineStar />
+              )}
+            </span>
           </span>
         )}
       </div>

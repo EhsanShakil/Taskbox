@@ -1,6 +1,8 @@
 import React from 'react';
 import Task from './Task';
 import {task} from '../stories/TaskList.stories'
+import {VscLoading} from 'react-icons/vsc'
+import './TaskList.css'
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }: task) {
   const events = {
@@ -8,17 +10,38 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }: t
     onArchiveTask,
   };
 
+   const LoadingRow = (
+    <div>
+        <span>{<VscLoading className='loading'/>}</span>
+    </div>
+  );
   if (loading) {
-    return <div className="list-items">loading...</div>;
+    return (
+      <div>
+        {LoadingRow}
+        {LoadingRow}
+        {LoadingRow}
+        {LoadingRow}
+        {LoadingRow}
+        {LoadingRow}
+      </div>
+    );
   }
-
   if (tasks.length === 0) {
-    return <div className="list-items">empty</div>;
+    return (
+      <div>
+          <div>You have no tasks</div>
+          <div>Sit back and relax</div>
+      </div>
+    );
   }
-
+  const tasksInOrder = [
+    ...tasks.filter(t => t.state === 'TASK_PINNED'),
+    ...tasks.filter(t => t.state !== 'TASK_PINNED'),
+  ];
   return (
-    <div className="list-items">
-      {tasks.map(task => (
+    <div>
+      {tasksInOrder.map(task => (
         <Task key={task.id} task={task} {...events} />
       ))}
     </div>
