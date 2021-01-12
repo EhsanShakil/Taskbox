@@ -7,16 +7,16 @@ export default {
   title: "Task",
 } as Meta;
 
-export interface tskinterface {
+export interface taskinterface {
   state: string;
   id?: string | undefined;
   title?: string | undefined;
   updatedAt?: Date;
 }
 export interface allTask {
-  task: tskinterface;
-  onArchiveTask: (task: tskinterface) => void;
-  onPinTask: (task: tskinterface) => void;
+  task: taskinterface;
+  onArchiveTask: (task: taskinterface) => void;
+  onPinTask: (task: taskinterface) => void;
 }
 
 const Template: Story<allTask> = (args) => <Task {...args} />;
