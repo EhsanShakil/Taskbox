@@ -1,10 +1,11 @@
 import React from "react";
 import { allTask } from "../stories/Task.stories";
 import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
+import './Task.css'
 
 const Task = ({ task, onArchiveTask, onPinTask }: allTask) => {
   return (
-    <div>
+    <div className='task'>
       <label>
         <input
           type="checkbox"
@@ -23,7 +24,7 @@ const Task = ({ task, onArchiveTask, onPinTask }: allTask) => {
         />
       </div>
 
-      <div onClick={(event) => event.stopPropagation()}>
+          <div className='icon' onClick={(event) => event.stopPropagation()}>
         {task.state !== "TASK_ARCHIVED" && (
           <span onClick={() => onPinTask(task)}>
             <span>

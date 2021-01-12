@@ -17,13 +17,13 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }: t
   );
   if (loading) {
     return (
-      <div>
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
+      <div className='loader' >
+        <div >{LoadingRow}</div>
+        <div>{LoadingRow}</div>
+        <div>{LoadingRow}</div>
+        <div>{LoadingRow}</div>
+        <div>{LoadingRow}</div>
+        <div>{LoadingRow}</div>
       </div>
     );
   }
