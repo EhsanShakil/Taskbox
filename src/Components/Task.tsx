@@ -1,33 +1,44 @@
 import React from "react";
-import { allTask } from "../stories/Task.stories";
 import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
-import './Task.css'
+import "./Task.css";
+
+export interface tskinterface {
+  state: string;
+  id?: string | undefined;
+  title?: string | undefined;
+}
+export interface allTask {
+  task: tskinterface;
+  onArchiveTask: (task: tskinterface) => void;
+  onPinTask: (task: tskinterface) => void;
+}
 
 const Task = ({ task, onArchiveTask, onPinTask }: allTask) => {
   return (
-    <div className='task'>
-      <label>
+    <div className="task">
+      <label onClick={() => onArchiveTask(task)}>
         <input
           type="checkbox"
           name="checked"
-          disabled={true}
-          defaultChecked={task.state === "TASK_ARCHIVED"}
+        //   disabled={true}
+                  defaultChecked={task.state === "TASK_ARCHIVED"}
+                  style={{ cursor: 'pointer'}}
         />
-        <span onClick={() => onArchiveTask(task)} />
       </label>
       <div>
-              <input
-                  className='input'
+        <input
+          className="input"
           type="text"
           value={task.title}
           readOnly={true}
           placeholder="Input title"
+          
         />
       </div>
 
-          <div className='icon' onClick={(event) => event.stopPropagation()}>
+      <div className="icon" onClick={(event) => event.stopPropagation()}>
         {task.state !== "TASK_ARCHIVED" && (
-          <span onClick={() => onPinTask(task)}>
+          <span style={{ cursor: 'pointer'}} onClick={() => onPinTask(task)}>
             <span>
               {task.state === "TASK_PINNED" ? (
                 <AiTwotoneStar color="yellow" />

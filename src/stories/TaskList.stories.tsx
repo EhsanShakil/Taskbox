@@ -1,11 +1,18 @@
 import React from "react";
-import {taskinterface} from "../stories/Task.stories";
-import TaskList from "../Components/TaskList";
+import  {tskinterface} from "../Components/Task";
+import TaskList  from "../Components/TaskList";
+// import * as TaskStories from "./Task.stories";
 
 import { Story, Meta } from "@storybook/react/types-6-0";
 
-export interface task {
-  tasks: taskinterface[];
+interface Tasks {
+  id: string;
+  title: string;
+  state?: string;
+  updatedAt?: Date | undefined;
+}
+interface tasker {
+  tasks: tskinterface[];
   loading: boolean;
   onPinTask?: any;
   onArchiveTask?: any;
@@ -16,7 +23,7 @@ export default {
   title: "TaskList",
 } as Meta;
 
-const Template: Story<task> = (args: task) => <TaskList {...args} />;
+const Template: Story<tasker> = (args) => <TaskList {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -33,6 +40,7 @@ Default.args = {
 export const WithPinnedTasks = Template.bind({});
 WithPinnedTasks.args = {
   tasks: [
+    // ...Default.args.tasks.slice(0, 5),
     { id: "1", title: "Task 1", state: "TASK_INBOX" },
     { id: "2", title: "Task 2", state: "TASK_INBOX" },
     { id: "3", title: "Task 3", state: "TASK_INBOX" },

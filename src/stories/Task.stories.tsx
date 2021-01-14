@@ -1,5 +1,6 @@
 import React from "react";
-import Task  from "../Components/Task";
+// import { allTask } from "../component/Task";
+import Task from "../Components/Task";
 import { Story, Meta } from "@storybook/react/types-6-0";
 
 export default {
@@ -7,16 +8,16 @@ export default {
   title: "Task",
 } as Meta;
 
-export interface taskinterface {
+interface tskinterface {
   state: string;
   id?: string | undefined;
   title?: string | undefined;
   updatedAt?: Date;
 }
-export interface allTask {
-  task: taskinterface;
-  onArchiveTask: (task: taskinterface) => void;
-  onPinTask: (task: taskinterface) => void;
+interface allTask {
+  task: tskinterface;
+  onArchiveTask: (task: tskinterface) => void;
+  onPinTask: (task: tskinterface) => void;
 }
 
 const Template: Story<allTask> = (args) => <Task {...args} />;

@@ -1,15 +1,40 @@
 import React from 'react';
 import Task from './Task';
-import {task} from '../stories/TaskList.stories'
+// import {task} from '../stories/TaskList.stories'
 import {VscLoading} from 'react-icons/vsc'
 import './TaskList.css'
+import { tskinterface } from "./Task";
 
-export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }: task) {
-  const events = {
-    onPinTask,
-    onArchiveTask,
-  };
 
+export interface task {
+  tasks: tskinterface[];
+  loading: boolean;
+}
+
+export default function TaskList({ loading, tasks }: task) {
+  const [taskItems, setTaskItem] = React.useState<tskinterface[]>(tasks);
+  const onPinTask = React.useCallback(
+    (tasks: tskinterface) => {
+      const filteredList = taskItems.filter((item) => item.id !== tasks.id);
+      let newTask: tskinterface = {
+        id: tasks.id,
+        title: tasks.title,
+        state: tasks.state === "TASK_PINNED" ? "TASK_INBOXED" : "TASK_PINNED",
+      };
+      setTaskItem([...filteredList, newTask]);
+    },
+    [taskItems]
+  );
+
+const onArchiveTask = React.useCallback(
+    (tasks: tskinterface) => {
+      const filteredList = taskItems.filter((item) => item.id !== tasks.id);
+      setTaskItem(filteredList);
+    },
+    [taskItems]
+  );
+    
+    
    const LoadingRow = (
     <div>
         <span>{<VscLoading className='loading'/>}</span>
@@ -27,7 +52,7 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }: t
       </div>
     );
   }
-  if (tasks.length === 0) {
+  if (taskItems.length === 0) {
     return (
       <div>
           <div>You have no tasks</div>
@@ -36,13 +61,13 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }: t
     );
   }
   const tasksInOrder = [
-    ...tasks.filter(t => t.state === 'TASK_PINNED'),
-    ...tasks.filter(t => t.state !== 'TASK_PINNED'),
+    ...taskItems.filter(t => t.state === 'TASK_PINNED'),
+    ...taskItems.filter(t => t.state !== 'TASK_PINNED'),
   ];
   return (
     <div>
       {tasksInOrder.map(task => (
-        <Task key={task.id} task={task} {...events} />
+          <Task key={task.id} task={task} onPinTask={onPinTask} onArchiveTask={onArchiveTask}/>
       ))}
     </div>
   );
