@@ -12,12 +12,6 @@ const InboxScreen: React.FC<any> = ({ error }) => {
 
   return (
     <div>
-      <nav>
-        <div>
-          <h1>Task Box</h1>
-        </div>
-      </nav>
-      <div>
         <TaskList
           loading={false}
           tasks={[
@@ -29,7 +23,6 @@ const InboxScreen: React.FC<any> = ({ error }) => {
             { id: "6", title: "Task 6", state: "TASK_INBOX" },
           ]}
         />
-      </div>
     </div>
   );
 };

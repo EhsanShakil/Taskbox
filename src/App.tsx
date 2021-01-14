@@ -5,6 +5,7 @@ import InboxScreen from "./Components/InboxScreen";
 function App() {
   return (
     <div className="App">
+      <h1>Task Box</h1>
       <span>{<InboxScreen />}</span>
     </div>
   );
