@@ -5,12 +5,6 @@ import TaskList  from "../Components/TaskList";
 
 import { Story, Meta } from "@storybook/react/types-6-0";
 
-interface Tasks {
-  id: string;
-  title: string;
-  state?: string;
-  updatedAt?: Date | undefined;
-}
 interface tasker {
   tasks: tskinterface[];
   loading: boolean;
