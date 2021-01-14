@@ -16,7 +16,8 @@ const Task = ({ task, onArchiveTask, onPinTask }: allTask) => {
         <span onClick={() => onArchiveTask(task)} />
       </label>
       <div>
-        <input
+              <input
+                  className='input'
           type="text"
           value={task.title}
           readOnly={true}
