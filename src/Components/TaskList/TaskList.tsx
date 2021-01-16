@@ -1,9 +1,9 @@
 import React from 'react';
-import Task from './Task';
+import Task from '../Task/Task';
 // import {task} from '../stories/TaskList.stories'
 import {VscLoading} from 'react-icons/vsc'
 import './TaskList.css'
-import { tskinterface } from "./Task";
+import { tskinterface } from "../Task/Task";
 
 
 export interface task {

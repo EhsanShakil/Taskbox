@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import InboxScreen from "./Components/InboxScreen";
+import InboxScreen from "./Components/InboxScreen/InboxScreen";
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import TaskList from "./TaskList";
+import TaskList from "../TaskList/TaskList";
 
 const InboxScreen: React.FC<any> = ({ error }) => {
   if (error) {

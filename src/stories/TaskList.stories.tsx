@@ -1,8 +1,6 @@
 import React from "react";
-import  {tskinterface} from "../Components/Task";
-import TaskList  from "../Components/TaskList";
-// import * as TaskStories from "./Task.stories";
-
+import  {tskinterface} from "../Components/Task/Task";
+import TaskList  from "../Components/TaskList/TaskList";
 import { Story, Meta } from "@storybook/react/types-6-0";
 
 interface tasker {

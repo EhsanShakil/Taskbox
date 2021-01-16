@@ -1,6 +1,6 @@
 import React from "react";
 // import { allTask } from "../component/Task";
-import Task from "../Components/Task";
+import Task from "../Components/Task/Task";
 import { Story, Meta } from "@storybook/react/types-6-0";
 
 export default {
