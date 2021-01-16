@@ -49,7 +49,9 @@
     "@storybook/react": "^6.1.11"
   },
   "bit": {
-    "env": {},
+    "env": {
+      "compiler": "bit.envs/compilers/react-typescript@3.1.64"
+    },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm"
   }
