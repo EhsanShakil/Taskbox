@@ -1,0 +1,22 @@
+.loading {
+  animation: loader-spin infinite 0.8s linear;
+}
+@keyframes loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loader > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 300px;
+  height: 30px;
+  margin: 20px;
+}

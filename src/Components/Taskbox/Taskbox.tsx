@@ -3,7 +3,7 @@ import InboxScreen from "../InboxScreen/InboxScreen";
 
 function Taskbox() {
   return (
-    <div>
+    <div >
       <h1>Task Box</h1>
       <span>{<InboxScreen />}</span>
     </div>
