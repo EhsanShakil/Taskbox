@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import Taskbox from "./Components/InboxScreen/InboxScreen";
+import Taskbox from "./Components/Taskbox/Taskbox";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Taskbox />
-      </div>
+    </div>
   );
 }
 
